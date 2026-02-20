@@ -47,3 +47,13 @@ obj-$(CONFIG_MT7915E) += mt7915/
 obj-$(CONFIG_MT7921_COMMON) += mt7921/
 obj-$(CONFIG_MT7996E) += mt7996/
 obj-$(CONFIG_MT7925_COMMON) += mt7925/
+
+KDIR ?= /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+
+all:
+	$(MAKE) -C $(KDIR) M=$(PWD) modules -j$(shell nproc)
+
+clean:
+	$(MAKE) -C $(KDIR) M=$(PWD) clean
+

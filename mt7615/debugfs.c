@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 
 #include "mt7615.h"
+#include <linux/hex.h>
 
 static int
 mt7615_reg_set(void *data, u64 val)
